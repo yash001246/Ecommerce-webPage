@@ -39,7 +39,7 @@ const createOrder = asyncHandler(async (req, res) => {
     await product.save();
   }
 
-  const taxPrice = 0; // GST @ 18%
+  const taxPrice = Number((itemsPrice * 0.18).toFixed(2)); // GST @ 18%
   const shippingPrice = 0; // Free shipping always
   const totalPrice = Number((itemsPrice + taxPrice + shippingPrice).toFixed(2));
 

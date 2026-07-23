@@ -25,7 +25,7 @@ export default function Checkout() {
   }, []);
 
   // Preview only — the backend recalculates and enforces the real amounts on order creation.
-  const tax = 0; 
+  const tax = subtotal * 0.18; // GST @ 18%
   const shipping = 0;
   const total = subtotal + tax + shipping;
 
