@@ -58,20 +58,20 @@ export default function AdminProducts() {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-        <h1 style={{ fontSize: '1.6rem' }}>Products</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 10 }}>
+        <h1 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.6rem)' }}>Products</h1>
         <button className="btn btn-primary" onClick={openNew}>+ Add product</button>
       </div>
 
       {showForm && (
         <form onSubmit={handleSubmit} className="card" style={{ padding: 20, marginBottom: 24 }}>
           {error && <div className="alert alert-error">{error}</div>}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          <div className="form-row-2">
             <div className="field"><label>Name</label><input className="input" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} /></div>
             <div className="field"><label>Brand</label><input className="input" value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} /></div>
           </div>
           <div className="field"><label>Description</label><textarea rows="3" required value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} /></div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+          <div className="form-row-3">
             <div className="field"><label>Price</label><input className="input" type="number" step="0.01" required value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} /></div>
             <div className="field"><label>Discount price</label><input className="input" type="number" step="0.01" value={form.discountPrice} onChange={(e) => setForm({ ...form, discountPrice: e.target.value })} /></div>
             <div className="field"><label>Stock</label><input className="input" type="number" required value={form.stock} onChange={(e) => setForm({ ...form, stock: e.target.value })} /></div>
@@ -96,6 +96,7 @@ export default function AdminProducts() {
         </form>
       )}
 
+      <div className="table-wrapper">
       <table className="card">
         <thead><tr><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th></th></tr></thead>
         <tbody>
@@ -113,6 +114,7 @@ export default function AdminProducts() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -48,6 +48,7 @@ export default function AdminCategories() {
         </div>
       </form>
 
+      <div className="table-wrapper">
       <table className="card">
         <thead><tr><th>Name</th><th>Description</th><th></th></tr></thead>
         <tbody>
@@ -63,6 +64,7 @@ export default function AdminCategories() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

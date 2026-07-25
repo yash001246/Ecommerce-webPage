@@ -49,13 +49,13 @@ export default function ProductList() {
   };
 
   return (
-    <div className="container" style={{ padding: '40px 0 70px' }}>
-      <h1 style={{ fontSize: '1.8rem', marginBottom: 24 }}>
+    <div className="container page">
+      <h1 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)', marginBottom: 24 }}>
         {keyword ? `Results for "${keyword}"` : 'All products'}
       </h1>
 
-      <div style={{ display: 'flex', gap: 32 }}>
-        <aside style={{ width: 220, flexShrink: 0 }}>
+      <div className="split-layout">
+        <aside className="sidebar">
           <div className="field">
             <label>Category</label>
             <select value={category} onChange={(e) => updateParam('category', e.target.value)}>
@@ -76,20 +76,20 @@ export default function ProductList() {
           </div>
         </aside>
 
-        <div style={{ flex: 1 }}>
+        <div className="main">
           {loading ? (
             <div className="spinner" />
           ) : products.length === 0 ? (
             <div className="empty-state">No products found.</div>
           ) : (
             <>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 20 }}>
+              <div className="product-grid">
                 {products.map((p) => (
                   <ProductCard key={p._id} product={p} />
                 ))}
               </div>
               {pages > 1 && (
-                <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 40 }}>
+                <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 40, flexWrap: 'wrap' }}>
                   {Array.from({ length: pages }, (_, i) => i + 1).map((p) => (
                     <button
                       key={p}

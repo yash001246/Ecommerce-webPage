@@ -34,8 +34,8 @@ export default function Profile() {
   };
 
   return (
-    <div className="container" style={{ padding: '40px 0 70px', maxWidth: 520 }}>
-      <h1 style={{ fontSize: '1.8rem', marginBottom: 24 }}>My profile</h1>
+    <div className="container page" style={{ maxWidth: 520 }}>
+      <h1 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)', marginBottom: 24 }}>My profile</h1>
 
       <form onSubmit={saveProfile} className="card" style={{ padding: 24, marginBottom: 24 }}>
         <h3 style={{ marginBottom: 16 }}>Personal details</h3>

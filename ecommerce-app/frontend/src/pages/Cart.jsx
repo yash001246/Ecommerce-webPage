@@ -16,27 +16,29 @@ export default function Cart() {
   }
 
   return (
-    <div className="container" style={{ padding: '40px 0 70px' }}>
-      <h1 style={{ fontSize: '1.8rem', marginBottom: 24 }}>Your cart</h1>
-      <div style={{ display: 'flex', gap: 40, flexWrap: 'wrap' }}>
-        <div style={{ flex: '2 1 400px' }}>
+    <div className="container page">
+      <h1 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)', marginBottom: 24 }}>Your cart</h1>
+      <div className="two-col">
+        <div className="col-main">
           {cart.items.map((item) => (
-            <div key={item._id} className="card" style={{ display: 'flex', gap: 16, padding: 14, marginBottom: 12, alignItems: 'center' }}>
-              <img src={item.image || 'https://via.placeholder.com/80'} alt={item.name} style={{ width: 80, height: 80, objectFit: 'cover', borderRadius: 4 }} />
-              <div style={{ flex: 1 }}>
+            <div key={item._id} className="card cart-item">
+              <img src={item.image || 'https://via.placeholder.com/80'} alt={item.name} />
+              <div className="cart-item-info">
                 <h3 style={{ fontSize: '1rem' }}>{item.name}</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>₹{item.price.toFixed(2)} each</p>
               </div>
-              <select value={item.quantity} onChange={(e) => updateQuantity(item._id, Number(e.target.value))} style={{ width: 70 }}>
-                {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => <option key={n} value={n}>{n}</option>)}
-              </select>
-              <strong style={{ width: 80, textAlign: 'right' }}>₹{(item.price * item.quantity).toFixed(2)}</strong>
-              <button className="btn btn-danger btn-sm" onClick={() => removeItem(item._id)}>Remove</button>
+              <div className="cart-item-actions">
+                <select value={item.quantity} onChange={(e) => updateQuantity(item._id, Number(e.target.value))} style={{ width: 70 }}>
+                  {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => <option key={n} value={n}>{n}</option>)}
+                </select>
+                <strong style={{ minWidth: 80, textAlign: 'right' }}>₹{(item.price * item.quantity).toFixed(2)}</strong>
+                <button className="btn btn-danger btn-sm" onClick={() => removeItem(item._id)}>Remove</button>
+              </div>
             </div>
           ))}
         </div>
 
-        <div style={{ flex: '1 1 280px' }}>
+        <div className="col-side">
           <div className="card" style={{ padding: 24 }}>
             <h3 style={{ marginBottom: 16 }}>Order summary</h3>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 10 }}>

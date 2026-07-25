@@ -22,15 +22,15 @@ export default function Wishlist() {
   if (loading) return <div className="spinner" />;
 
   return (
-    <div className="container" style={{ padding: '40px 0 70px' }}>
-      <h1 style={{ fontSize: '1.8rem', marginBottom: 24 }}>My wishlist</h1>
+    <div className="container page">
+      <h1 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)', marginBottom: 24 }}>My wishlist</h1>
       {wishlist.products.length === 0 ? (
         <div className="empty-state">
           <p>Your wishlist is empty.</p>
           <Link to="/products" className="btn btn-primary" style={{ marginTop: 16 }}>Browse products</Link>
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 20 }}>
+        <div className="product-grid">
           {wishlist.products.map((p) => (
             <div key={p._id} className="card" style={{ overflow: 'hidden' }}>
               <Link to={`/products/${p._id}`}>

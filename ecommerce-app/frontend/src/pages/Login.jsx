@@ -21,7 +21,7 @@ export default function Login() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: 420, padding: '70px 24px' }}>
+    <div className="container" style={{ maxWidth: 420, padding: 'clamp(40px, 8vw, 70px) 20px' }}>
       <h1 style={{ fontSize: '1.8rem', marginBottom: 8 }}>Welcome back</h1>
       <p style={{ color: 'var(--text-muted)', marginBottom: 28 }}>Log in to continue shopping.</p>
 
@@ -44,7 +44,9 @@ export default function Login() {
       <p style={{ marginTop: 20, fontSize: '0.9rem', color: 'var(--text-muted)' }}>
         Don't have an account? <Link to="/register" style={{ color: 'var(--ink)', fontWeight: 600 }}>Sign up</Link>
       </p>
-      
+      <p style={{ marginTop: 12, fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+        Demo: admin@example.com / admin123 &middot; customer@example.com / customer123
+      </p>
     </div>
   );
 }

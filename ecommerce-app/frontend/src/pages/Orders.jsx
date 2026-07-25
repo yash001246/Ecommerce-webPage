@@ -13,8 +13,8 @@ export default function Orders() {
   if (loading) return <div className="spinner" />;
 
   return (
-    <div className="container" style={{ padding: '40px 0 70px' }}>
-      <h1 style={{ fontSize: '1.8rem', marginBottom: 24 }}>My orders</h1>
+    <div className="container page">
+      <h1 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 1.8rem)', marginBottom: 24 }}>My orders</h1>
       {orders.length === 0 ? (
         <div className="empty-state">
           <p>You haven't placed any orders yet.</p>
@@ -22,7 +22,7 @@ export default function Orders() {
         </div>
       ) : (
         orders.map((o) => (
-          <Link key={o._id} to={`/orders/${o._id}`} className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 18, marginBottom: 12 }}>
+          <Link key={o._id} to={`/orders/${o._id}`} className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 18, marginBottom: 12, gap: 12, flexWrap: 'wrap' }}>
             <div>
               <strong>Order #{o._id.slice(-8).toUpperCase()}</strong>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: 4 }}>

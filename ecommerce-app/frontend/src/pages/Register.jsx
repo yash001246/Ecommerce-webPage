@@ -20,7 +20,7 @@ export default function Register() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: 420, padding: '70px 24px' }}>
+    <div className="container" style={{ maxWidth: 420, padding: 'clamp(40px, 8vw, 70px) 20px' }}>
       <h1 style={{ fontSize: '1.8rem', marginBottom: 8 }}>Create your account</h1>
       <p style={{ color: 'var(--text-muted)', marginBottom: 28 }}>Join us and start shopping.</p>
 

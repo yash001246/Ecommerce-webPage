@@ -62,23 +62,23 @@ export default function ProductDetail() {
   const price = product.discountPrice || product.price;
 
   return (
-    <div className="container" style={{ padding: '40px 0 70px' }}>
-      <div style={{ display: 'flex', gap: 48, flexWrap: 'wrap' }}>
-        <div style={{ flex: '1 1 400px' }}>
-          <div style={{ aspectRatio: '1', background: 'var(--sand)', borderRadius: 4, overflow: 'hidden' }}>
+    <div className="container page">
+      <div className="detail-layout">
+        <div>
+          <div className="card" style={{ aspectRatio: '1', overflow: 'hidden' }}>
             <img src={product.images?.[0] || 'https://via.placeholder.com/500'} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
         </div>
 
-        <div style={{ flex: '1 1 380px' }}>
+        <div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
             {product.category?.name} &middot; {product.brand}
           </p>
-          <h1 style={{ fontSize: '2rem', margin: '8px 0' }}>{product.name}</h1>
+          <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', margin: '8px 0' }}>{product.name}</h1>
           {product.numReviews > 0 && (
             <p style={{ color: 'var(--gold)', marginBottom: 12 }}>★ {product.ratings.toFixed(1)} ({product.numReviews} reviews)</p>
           )}
-          <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '16px 0' }}>
+          <div style={{ display: 'flex', gap: 10, alignItems: 'center', margin: '16px 0', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '1.7rem', fontWeight: 700 }}>₹{price.toFixed(2)}</span>
             {product.discountPrice > 0 && (
               <span style={{ textDecoration: 'line-through', color: 'var(--text-muted)' }}>₹{product.price.toFixed(2)}</span>
@@ -92,7 +92,7 @@ export default function ProductDetail() {
 
           {msg && <div className="alert alert-success">{msg}</div>}
 
-          <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20 }}>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20, flexWrap: 'wrap' }}>
             <select value={qty} onChange={(e) => setQty(Number(e.target.value))} style={{ width: 80 }}>
               {Array.from({ length: Math.min(10, product.stock || 1) }, (_, i) => i + 1).map((n) => (
                 <option key={n} value={n}>{n}</option>
@@ -106,8 +106,8 @@ export default function ProductDetail() {
         </div>
       </div>
 
-      <section style={{ marginTop: 60, maxWidth: 700 }}>
-        <h2 style={{ fontSize: '1.4rem', marginBottom: 20 }}>Customer reviews</h2>
+      <section style={{ marginTop: 56, maxWidth: 700 }}>
+        <h2 style={{ fontSize: 'clamp(1.15rem, 3vw, 1.4rem)', marginBottom: 20 }}>Customer reviews</h2>
 
         {user && (
           <form onSubmit={submitReview} className="card" style={{ padding: 20, marginBottom: 24 }}>
@@ -131,7 +131,7 @@ export default function ProductDetail() {
         ) : (
           reviews.map((r) => (
             <div key={r._id} className="card" style={{ padding: 16, marginBottom: 12 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 6 }}>
                 <strong>{r.user?.name || 'Anonymous'}</strong>
                 <span style={{ color: 'var(--gold)' }}>{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</span>
               </div>

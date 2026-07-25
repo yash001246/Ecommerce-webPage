@@ -178,7 +178,7 @@ export default function Checkout() {
             <h3 style={{ marginBottom: 16 }}>Order total</h3>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}><span>Subtotal</span><span>₹{subtotal.toFixed(2)}</span></div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}><span>Tax (GST 18%)</span><span>₹{tax.toFixed(2)}</span></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}><span>Shipping </span><span>{shipping === 0 ? 'Free' : `₹${shipping.toFixed(2)}`}</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}><span>Shipping</span><span>{shipping === 0 ? 'Free' : `₹${shipping.toFixed(2)}`}</span></div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, borderTop: '1px solid var(--line)', paddingTop: 12, marginBottom: 20 }}>
               <span>Total</span><span>₹{total.toFixed(2)}</span>
             </div>

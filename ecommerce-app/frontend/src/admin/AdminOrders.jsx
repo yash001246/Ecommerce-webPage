@@ -22,14 +22,15 @@ export default function AdminOrders() {
 
   return (
     <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-        <h1 style={{ fontSize: '1.6rem' }}>Orders</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20, flexWrap: 'wrap', gap: 10 }}>
+        <h1 style={{ fontSize: 'clamp(1.3rem, 3vw, 1.6rem)' }}>Orders</h1>
         <select value={filter} onChange={(e) => setFilter(e.target.value)} style={{ width: 180 }}>
           <option value="">All statuses</option>
           {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
 
+      <div className="table-wrapper">
       <table className="card">
         <thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Status</th><th>Update</th></tr></thead>
         <tbody>
@@ -48,6 +49,7 @@ export default function AdminOrders() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
