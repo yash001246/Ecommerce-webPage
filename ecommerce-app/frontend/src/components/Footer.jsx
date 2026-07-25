@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
         <div style={{ fontFamily: 'Fraunces, serif', fontSize: '1.2rem' }}>ShopEase</div>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-          &copy; {new Date().getFullYear()} ShopEase. Built with React, Node & MongoDB.
+          &copy; {new Date().getFullYear()} ShopEase.
         </p>
       </div>
     </footer>
