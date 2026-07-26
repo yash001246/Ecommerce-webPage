@@ -22,10 +22,12 @@ export default function Cart() {
         <div className="col-main">
           {cart.items.map((item) => (
             <div key={item._id} className="card cart-item">
-              <img src={item.image || 'https://via.placeholder.com/80'} alt={item.name} />
-              <div className="cart-item-info">
-                <h3 style={{ fontSize: '1rem' }}>{item.name}</h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>₹{item.price.toFixed(2)} each</p>
+              <div className="cart-item-media">
+                <img src={item.image || 'https://via.placeholder.com/80'} alt={item.name} />
+                <div className="cart-item-info">
+                  <h3 style={{ fontSize: '1rem' }}>{item.name}</h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>₹{item.price.toFixed(2)} each</p>
+                </div>
               </div>
               <div className="cart-item-actions">
                 <select value={item.quantity} onChange={(e) => updateQuantity(item._id, Number(e.target.value))} style={{ width: 70 }}>
